@@ -13,7 +13,7 @@ import (
 	"github.com/Zetkolink/oracle/rater"
 	"github.com/Zetkolink/oracle/services"
 	"github.com/Zetkolink/oracle/services/vk/keyboard"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"github.com/go-vk-api/vk"
 )
 

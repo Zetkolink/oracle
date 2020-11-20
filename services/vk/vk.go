@@ -21,7 +21,7 @@ import (
 	"github.com/Zetkolink/oracle/services/vk/menu"
 	"github.com/Zetkolink/oracle/services/vk/registrar"
 	"github.com/Zetkolink/oracle/services/vk/tasks"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	vkSDK "github.com/go-vk-api/vk"
 	lp "github.com/go-vk-api/vk/longpoll/user"
 	"googlemaps.github.io/maps"

@@ -19,7 +19,7 @@ import (
 	"github.com/Zetkolink/oracle/observer"
 	"github.com/Zetkolink/oracle/rater"
 	"github.com/Zetkolink/oracle/services/vk"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	vkSDK "github.com/go-vk-api/vk"
 	_ "github.com/lib/pq"
 	"googlemaps.github.io/maps"

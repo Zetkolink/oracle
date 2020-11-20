@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 )
 
 const Awaking = 1

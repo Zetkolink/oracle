@@ -15,7 +15,7 @@ import (
 	"github.com/Zetkolink/oracle/services"
 	"github.com/Zetkolink/oracle/services/vk/keyboard"
 	"github.com/Zetkolink/oracle/state"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"github.com/go-vk-api/vk"
 	"github.com/mitchellh/mapstructure"
 )
@@ -123,6 +123,22 @@ func (t *Tasks) Handle(ctx context.Context, message services.Message) (string, e
 		err = t.MarkGoalList(ctx, message.GetUser(), *date)
 
 		if err != nil {
+			if err == errNoGoals {
+				err = t.NoGoals(message.GetPeer())
+
+				if err != nil {
+					return "", err
+				}
+
+				err := t.SendMain(ctx, message.GetPeer())
+
+				if err != nil {
+					return "", err
+				}
+
+				return "", nil
+			}
+
 			return "", err
 		}
 	case "update_task":

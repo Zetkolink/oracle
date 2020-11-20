@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 )
 
 type State struct {
@@ -52,25 +52,6 @@ func NewState(ctx context.Context, peerID int64, prefix string, r *redis.Client)
 	state.redis = r
 
 	return &state, nil
-}
-
-func LoadParams(ctx context.Context, peerID int64, prefix string, r *redis.Client) (interface{}, error) {
-	key := fmt.Sprintf("%s_%d", prefix, peerID)
-	stateRaw, err := r.Get(ctx, key).Result()
-
-	if err != nil {
-		return nil, err
-	}
-
-	var state State
-
-	err = json.Unmarshal([]byte(stateRaw), &state)
-
-	if err != nil {
-		return nil, err
-	}
-
-	return state.Params, nil
 }
 
 func (s *State) SetParams(ctx context.Context, params interface{}) error {

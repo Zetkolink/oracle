@@ -10,7 +10,7 @@ import (
 	"github.com/Zetkolink/oracle/models/goals"
 	"github.com/Zetkolink/oracle/models/userGoals"
 	"github.com/Zetkolink/oracle/models/users"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 )
 
 type Notificator struct {
